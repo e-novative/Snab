@@ -28,6 +28,13 @@ import java.security.NoSuchAlgorithmException;
  *      hasNetwork                  - Test if device has Network enabled
  */
 
+
+
+
+
+
+
+
 public class Functions{
 
     public static String GetIMEI(Context context)
