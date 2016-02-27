@@ -11,4 +11,8 @@
 
     <string name="shared_preferences_filename">sharedPreferences.xml</string>
 
+    <string name="photoDescriptionTitle">What is this?</string>
+    <string name="photoDescriptionSubjectType">Select Subject Type</string>
+    <string name="photoDescriptionSubjectName">Enter Subject Name</string>
+    <string name="photoDescriptionSubmitButton">Snab-it</string>
 </resources>

@@ -14,11 +14,11 @@
         android:layout_height="fill_parent"
         android:orientation="vertical">
 
-        <ImageView android:id="@+id/snab_logo"
+        <ImageView android:id="@+id/take_photo"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:src="@drawable/snablogo"
+            android:src="@drawable/takephoto"
             />
 
         <HorizontalScrollView
@@ -40,12 +40,13 @@
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
 
-
-        <Button android:id="@+id/btnUpload"
+        <ImageView android:id="@+id/upload_photo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-             style="@style/uploadbutton"
-            android:text="@string/upload_picture"/>
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/upload"
+            />
+
     </LinearLayout>
 
 </RelativeLayout>

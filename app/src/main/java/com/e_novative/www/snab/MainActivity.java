@@ -1,22 +1,16 @@
 package com.e_novative.www.snab;
 
 import android.app.Activity;
-import android.app.SearchManager;
-import android.content.ContentResolver;
-import android.content.DialogInterface;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
@@ -36,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     //  Revision History:
     //      17 February, 2016           Basic Framework
     //      22 February, 2016           Preferences menu
+    //      26 February, 2016           TakePhoto/UploadPhoto
     //
     //  * * * * * * * * * * * * * ** * * * * * * * * * * * * *
     // Public Variable
@@ -47,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
     private Uri imageURI;
     private Bitmap bitmap;
 
-    private ImageView snabButton;           // snab logo acts a button
+    private ImageView takePhoto;           // snab logo acts a button
+    private ImageView uploadPhoto;
     private LinearLayout myGallery;         // picture gallery
 
-    private Button btnUpload;
     private String thisFilename;
 
     // Settings/preferences Structure
@@ -123,32 +118,30 @@ public class MainActivity extends AppCompatActivity {
         Prefs = Functions.ReadPreferences(MainActivity.this);
 
         // snab logo is used to start Camera
-        snabButton = (ImageView) findViewById(R.id.snab_logo);
-        snabButton.setOnClickListener(cameraListener);
+        takePhoto = (ImageView) findViewById(R.id.take_photo);
+        takePhoto.setOnClickListener(cameraListener);
 
         myGallery = (LinearLayout)findViewById(R.id.mygallery);
 
-        displayMyGallery();
+      //  displayMyGallery();
 
         // Upload Button / enabled after photo is taken or selected.
-        btnUpload = (Button) findViewById(R.id.btnUpload);
-        btnUpload.setClickable(false);
-        btnUpload.setAlpha(.5f);
+        uploadPhoto = (ImageView) findViewById(R.id.upload_photo);
+        uploadPhoto.setClickable(false);
+        uploadPhoto.setAlpha(.5f);
         // Upload Picture Listener
-        btnUpload.setOnClickListener(new View.OnClickListener() {
+        uploadPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnUpload.setClickable(false);
-                btnUpload.setAlpha(.5f);
+                uploadPhoto.setClickable(false);
+                uploadPhoto.setAlpha(.5f);
 
                 Toast.makeText(MainActivity.this, "Uploading to Snab", Toast.LENGTH_LONG).show();
 
                 // Upload Photo to SNAB account
                 if (!Prefs.has_read_EULA) {
                     // Display Eula and registration
-
                 }
-
             }
         });
 
@@ -228,8 +221,6 @@ public class MainActivity extends AppCompatActivity {
         return inSampleSize;
     }
 
-
-
     // OnClickListener to launch camera
     private View.OnClickListener cameraListener = new View.OnClickListener() {
         @Override
@@ -261,12 +252,15 @@ public class MainActivity extends AppCompatActivity {
             Uri selectedImage = imageURI;
             getContentResolver().notifyChange(selectedImage, null);
 
+            // Display Description Dialog
+            PhotoDescription_Dialog();
+
             // after taking photo, update Gallery to allow user to select it.
             //xxxx
 
             Toast.makeText(MainActivity.this, "Successfully Snabbed photo", Toast.LENGTH_LONG).show();
-            btnUpload.setClickable(true);
-            btnUpload.setAlpha(1f);
+            uploadPhoto.setClickable(true);
+            uploadPhoto.setAlpha(1f);
 
         } else {
             Toast.makeText(MainActivity.this, "Picture Cancelled", Toast.LENGTH_LONG).show();
@@ -285,4 +279,23 @@ public class MainActivity extends AppCompatActivity {
        // Intent intent = new Intent(this,  )
     }
 
+    private void PhotoDescription_Dialog(){
+        // Popup dialog box to describe photo
+        final Dialog photoDescriptionDialog = new Dialog(MainActivity.this);
+        photoDescriptionDialog.setTitle(R.string.photoDescriptionTitle);
+
+        photoDescriptionDialog.setContentView(R.layout.photo_description_dialog);
+
+        // Stop Reason PostDelayed timeout
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+            // Timeout if user sleeping
+                photoDescriptionDialog.dismiss();
+            }
+        }, 3000000);
+
+        photoDescriptionDialog.show();
+
+    }   // end photoDescriptionDialog()
 }
