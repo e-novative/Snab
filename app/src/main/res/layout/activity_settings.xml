@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView android:id="@+id/identity_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Account Information"
+        style="@style/SettingCategory"/>
+
+    <LinearLayout android:id="@+id/identity_expandable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText android:id="@+id/useremailaddress"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="6dp"
+                android:inputType="textEmailAddress"
+                android:hint="Email Address"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText android:id="@+id/userfirstname"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="6dp"
+                android:inputType="textCapWords"
+                android:hint="First Name"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText android:id="@+id/userlastname"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="6dp"
+                android:inputType="textCapWords"
+                android:hint="Last Name"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText android:id="@+id/userpassword"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="6dp"
+                android:inputType="textPassword"
+                android:hint="Password for website"
+                />
+            <ImageView android:id="@+id/seePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/see"/>
+
+        </LinearLayout>
+
+        <TextView android:id="@+id/LogOnAt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Log on at www.trafficlighttracker.com"
+            android:textSize="15dp"
+            />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_height="10dp"
+        android:layout_width="wrap_content" />
+
+    <TextView android:id="@+id/general_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="General Settings"
+        style="@style/SettingCategory"/>
+
+    <LinearLayout android:id="@+id/general_expandable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_height="wrap_content"
+                android:text="Display Only Snab Shots: "/>
+
+            <CheckBox android:id="@+id/cbxDisplyOnlySnabshots"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_height="10dp"
+        android:layout_width="wrap_content" />
+
+    <TextView android:id="@+id/eula_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EULA"
+        style="@style/SettingCategory"/>
+
+    <LinearLayout android:id="@+id/eula_expandable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView android:id="@+id/eula_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fore score and seven years ago."
+               />
+
+        </ScrollView>
+
+        <CheckBox android:id="@+id/cbxEULA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I have read and understood and agree to this."/>
+
+    </LinearLayout>
+
+    </LinearLayout>
+

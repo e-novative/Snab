@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Snab</string>
+    <string name="action_settings">My Preferences</string>
+    <string name="action_terms">Terms &amp; Conditions</string>
+
+    <string name="snab_url">www.snab.com</string>
+
+    <string name="image_content_description">Snab Picture</string>
+    <string name="upload_picture">Upload Picture</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <string name="shared_preferences_filename">sharedPreferences.xml</string>
+
+</resources>
