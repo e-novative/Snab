@@ -7,12 +7,23 @@
 
     <string name="image_content_description">Snab Picture</string>
     <string name="upload_picture">Upload Picture</string>
+    <string name="uploadSuccess">UPLOAD SUCCESS</string>
+
+    <string name="upload_success_text">You will be notified if your media is sold.  You can check on the status
+        of your submission in your Upload History (upper right icon on the home screen), or by logging into Snab.us.</string>
+
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_upload_snap">Upload A Snab</string>
 
     <string name="shared_preferences_filename">sharedPreferences.xml</string>
 
+    <string name="createAccountTitle">CREATE ACCOUNT</string>
+    <string name="createAlreadyHaveAccount">Already have an account?></string>
+    <string name="loginTitle">LOG IN</string>
+    <string name="loginForgot">Forgot Password?</string>
     <string name="photoDescriptionTitle">What is this?</string>
     <string name="photoDescriptionSubjectType">Select Subject Type</string>
     <string name="photoDescriptionSubjectName">Enter Subject Name</string>
     <string name="photoDescriptionSubmitButton">Snab-it</string>
+    <string name="title_activity_create_account">CreateAccountActivity</string>
 </resources>
